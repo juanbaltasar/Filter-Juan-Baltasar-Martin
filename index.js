@@ -28,8 +28,35 @@ const filter = function (field, operator, value) {
 
     /* YOUR CODE HERE */
 
+    let arrToReturn = []
 
+    switch (operator) {
+        case EQUAL:
+            arrToReturn = items.filter(el => {
+                return el[field] === value
+            })
+            break;
+        case CONTAINS:
+            arrToReturn = items.filter(el => {
+                return el[field]?.includes(value)
+            })
+            break;
+        case GREATER_THAN:
+            arrToReturn = items.filter(el => {
+                return el[field] > value
+            })
+            break;
+        case LESS_THAN:
+            arrToReturn = items.filter(el => {
+                return el[field] < value
+            })
+            break;
+    
+        default:
+            break;
+    }
 
+    return arrToReturn
 
 }
 
